@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_asp1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_account">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ql" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_account" EntityType="Self.tbl_account" />
+    <EntitySet Name="tbl_product" EntityType="Self.tbl_product" />
+    <FunctionImport Name="Sp_Account_Delete">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Account_Insert">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_account_listall" ReturnType="Collection(db_asp1Model.SP_account_listall_Result)" />
+    <FunctionImport Name="Sp_Account_Login" ReturnType="Collection(Boolean)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Account_Update">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Accounts_SelectID" ReturnType="Collection(db_asp1Model.Sp_Accounts_SelectID_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Acount_Login" ReturnType="Collection(Boolean)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Products_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Products_Insert">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+      <Parameter Name="Detail" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Products_listall" ReturnType="Collection(db_asp1Model.SP_Products_listall_Result)" />
+    <FunctionImport Name="Sp_Products_SelectID" ReturnType="Collection(db_asp1Model.Sp_Products_SelectID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Products_Update">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+      <Parameter Name="Detail" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_account_listall_Result">
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="pass" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ql" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Sp_Accounts_SelectID_Result">
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="pass" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ql" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Products_listall_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Detail" Nullable="true" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Sp_Products_SelectID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Detail" Nullable="true" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,101 @@
+﻿@model Baithi.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/FrontEndLayout.cshtml";
+}
+
+
+
+
+    
+        @{ double Tongtien = 0;
+            if (Model != null && Model.Items.Count() > 0)
+            {
+                
+                    <h4 class="mb-sm-4 mb-3">
+                        Trong giỏ hàng của bạn có:
+                        <span>@Model.Items.Count() sản phẩm</span>
+                    </h4>
+
+                    <div class="table-responsive">
+                       
+                            
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+
+                                    double total = Convert.ToDouble(item.products.Price.Value * item.Quatity);
+                                    Tongtien += total;
+                                    <div class="px-4 my-5 bg-light rounded-3" >
+                                        <div class="container py-4">
+                                            <a href="/ShoppingCart/delete_SP/@item.products.ID" class="btn-close float-end" aria-label='Close'> </a>
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-4">
+                                                    <img src="~/assets/@item.products.Images" alt="@item.products.Images" height='200px' width="180px" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h3>@item.products.Name</h3>
+                                                    <p class='lead fw-bold'>@string.Format("{0:#,##0}", total) VND</p>
+                                                    <label> Số lượng:</label>
+                                                    @using (Html.BeginForm("Update_Quatity_Cart", "ShoppingCart"))
+                                                    {
+                                                    <input type="hidden" value="@item.products.ID" name="ID_Product" class='lead fw-bold' />
+
+                                                    <input type="number" value="@item.Quatity" name="quatity" class='lead fw-bold' />
+                                                    <input type="submit" value="Update Quatity"  class='btn btn-success' />
+                                                    }
+
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    
+                                }
+                            </tbody>
+                            <tfoot>
+                                
+                                   
+                                        <h3 style="color:red">
+                                            <b>Tổng tiền: </b>
+                                            <b>@string.Format("{0:#,##0}", Tongtien) VND</b>
+                                        </h3>
+                               
+                            </tfoot>
+                       
+                    </div>
+                
+                <div class="checkout-left">
+                    <div class="address_form_agile mt-sm-5 mt-4">
+                        <div class="checkout-right-basket">
+
+                            <a href="/Index">
+                                Quay lại mua hàng
+                                <span class="far fa-hand-point-right"></span>
+                            </a>
+                            <a href="/CheckOut" class="btn btn-outline-success ">Thanh toán</a>
+                        </div>
+                    </div>
+                </div> }
+            else
+            {
+                <br />
+                <h4>Giỏ hàng trống</h4>
+                <div class="checkout-left">
+                    <div class="address_form_agile mt-sm-5 mt-4">
+                        <div class="checkout-right-basket">
+
+                            <a href="/Index">
+                                Quay lại mua hàng
+                                <span class="far fa-hand-point-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div> } }
+
+

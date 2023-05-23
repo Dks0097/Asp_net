@@ -1,0 +1,29 @@
+﻿
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/FrontEndLayout.cshtml";
+}
+<div class="container d-flex justify-content-center mb-5 bp-5 ">
+    <div class="col md-6">
+        <img src="~/assets/@Model.Images" alt="@Model.Images" height={400px} width={400px} />
+
+    </div>
+    <div class="col md-6 ms-2">
+        <h4 class="text-uppercase text-black-50">@Model.Detail</h4>
+        <h1 class="display-5">@Model.Name</h1>
+        <p class="lead">
+
+            <i class="fa fa-star"></i>
+        </p>
+        <h3 class="display-6 fw-bold my-4">
+            @Model.Price VND
+        </h3>
+        <a href="/ShoppingCart/AddtoCart/@Model.ID">
+            <img src="~/assets/cart.png" />
+            <button class="btn btn-outline-dark" >Add to Cart</button>
+        </a>
+       
+        <a href="/ShowCart" class="btn btn-dark ms-2 px-3 py-2">Go to Cart</a>
+    </div>
+</div>

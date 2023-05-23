@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Sanpham";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+
+
+
+<a href="/Create">thêm</a>
+<table id="datatablesSimple"
+       class="dataTable-table">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Name</th>
+
+            <th>Price</th>
+
+            <th>Detail</th>
+
+            <th>Images</th>
+            <th>
+                Edit
+            </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.ID</th>
+                <th>@item.Name</th>
+                <th>@item.Price</th>
+                <th>@item.Detail</th>
+                <th><img src="~/assets/@item.Images" /></th>
+
+                <th>
+                    <a href="/Products/Edit/@item.ID">Sửa</a>|
+                    <a href="/Products/Delete/@item.ID">Xóa</a>
+                </th>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+
+
+
+

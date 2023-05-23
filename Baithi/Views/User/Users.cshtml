@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+
+<a href="/Register">đăng kí</a>
+<table id="datatablesSimple"
+       class="dataTable-table">
+
+    <thead>
+
+        <tr>
+
+            <th>Username</th>
+
+            <th>Pass</th>
+
+
+
+
+            <th>
+                Edit
+            </th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <th>@user.username</th>
+                <th>@user.pass</th>
+
+                <th>
+                    <a href="/Users/Edit/@user.username">Sửa</a>|
+                    <a href="/Users/Delete/@user.username">Xóa</a>
+                </th>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+
+
+
+
+

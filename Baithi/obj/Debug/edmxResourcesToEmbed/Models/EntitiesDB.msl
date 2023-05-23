@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_asp1ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tbl_account">
+      <EntityTypeMapping TypeName="db_asp1Model.tbl_account">
+        <MappingFragment StoreEntitySet="tbl_account">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="ql" ColumnName="ql" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_product">
+      <EntityTypeMapping TypeName="db_asp1Model.tbl_product">
+        <MappingFragment StoreEntitySet="tbl_product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Account_Delete" FunctionName="db_asp1Model.Store.Sp_Account_Delete" />
+    <FunctionImportMapping FunctionImportName="Sp_Account_Insert" FunctionName="db_asp1Model.Store.Sp_Account_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_account_listall" FunctionName="db_asp1Model.Store.SP_account_listall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_asp1Model.SP_account_listall_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="ql" ColumnName="ql" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Account_Login" FunctionName="db_asp1Model.Store.Sp_Account_Login" />
+    <FunctionImportMapping FunctionImportName="Sp_Account_Update" FunctionName="db_asp1Model.Store.Sp_Account_Update" />
+    <FunctionImportMapping FunctionImportName="Sp_Accounts_SelectID" FunctionName="db_asp1Model.Store.Sp_Accounts_SelectID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_asp1Model.Sp_Accounts_SelectID_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="ql" ColumnName="ql" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Acount_Login" FunctionName="db_asp1Model.Store.Sp_Acount_Login" />
+    <FunctionImportMapping FunctionImportName="Sp_Products_Delete" FunctionName="db_asp1Model.Store.Sp_Products_Delete" />
+    <FunctionImportMapping FunctionImportName="Sp_Products_Insert" FunctionName="db_asp1Model.Store.Sp_Products_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_Products_listall" FunctionName="db_asp1Model.Store.SP_Products_listall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_asp1Model.SP_Products_listall_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Products_SelectID" FunctionName="db_asp1Model.Store.Sp_Products_SelectID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_asp1Model.Sp_Products_SelectID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Products_Update" FunctionName="db_asp1Model.Store.Sp_Products_Update" />
+  </EntityContainerMapping>
+</Mapping>

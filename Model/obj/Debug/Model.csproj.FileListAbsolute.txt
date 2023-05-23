@@ -1,0 +1,12 @@
+E:\HocASP.NET\Baithi\Model\bin\Debug\Model.dll.config
+E:\HocASP.NET\Baithi\Model\bin\Debug\Model.dll
+E:\HocASP.NET\Baithi\Model\bin\Debug\Model.pdb
+E:\HocASP.NET\Baithi\Model\bin\Debug\EntityFramework.dll
+E:\HocASP.NET\Baithi\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\HocASP.NET\Baithi\Model\bin\Debug\EntityFramework.xml
+E:\HocASP.NET\Baithi\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\HocASP.NET\Baithi\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+E:\HocASP.NET\Baithi\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\HocASP.NET\Baithi\Model\obj\Debug\Model.csproj.CopyComplete
+E:\HocASP.NET\Baithi\Model\obj\Debug\Model.dll
+E:\HocASP.NET\Baithi\Model\obj\Debug\Model.pdb
